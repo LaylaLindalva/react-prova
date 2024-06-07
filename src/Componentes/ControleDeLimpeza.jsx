@@ -2,12 +2,13 @@ import { Button, DivCardMaior, DivImg, DivPrincipal, Form, H1, Img, Input, Input
 import Img1 from '../../Image/carrinho-limpeza.png'
 import React from "react"
 
-const ControleDeLimpeza = ({saveDados}) => {
+const ControleDeLimpeza = (saveDados) => {
 
     const[nome, setNome] = React.useState('')
     const[hora, setHora] = React.useState('')
     const[sala, setSala] = React.useState('')
     const[data, setData] = React.useState('')
+    const[error, setError] = React.useState('')
 
     function handleSaveInfo () {
         const dados = {
@@ -20,24 +21,34 @@ const ControleDeLimpeza = ({saveDados}) => {
         saveDados(dados)
     }
 
-    // function ValidaNome (value) {
-    //     if(value.length === 0){
-    //         setError("O campo não pode estar vazio")
-    // }else {
-    //     setError(null)
-    // }
+    function ValidaNome (value) {
+        if(value === ''){
+            setError("O campo não pode estar vazio")
+            return false
+    }else {
+        setError(null)
+        return true
+    }
+}
 
-    // function preventDefult(event){
-    //     event.preventDefult()
-    //     }
+function handleNome({target}){
+    ValidaNome(target.value)
+}
+
+    function preventDefult(event){
+        event.preventDefult()
+        }
 
     return(
         <DivPrincipal>
             <DivCardMaior>
-                <Form>
+                <Form onSubmit={preventDefult}>
                 <H1>Controle de Limpeza</H1>
-                <Input type="text" placeholder="Nome" value={nome}
-                onChange={event => setNome(event.target.value)}/>
+                <Input type="text" placeholder="Nome" 
+                value={nome}
+                onBlur={handleNome}
+                style={error ? {borderColor: "red"} :{borderColor:"green"}}
+                onChange={({target}) => setNome(target.value)}/>
                 <Input type="text" placeholder="Horário da limpeza"
                  value={hora}
                  onChange={event => setHora(event.target.value)}/>

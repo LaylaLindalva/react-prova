@@ -1,4 +1,3 @@
-import React from 'react';
 import { Div, Titulo, Section1, DivMenor, ConteudoDivMenor, DivEngloba } from "../Style/Planilha";
 import Info from "./Info";
 

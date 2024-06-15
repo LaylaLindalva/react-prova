@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const HeaderContainer1 = styled.header`
   width: 100%;
-  height: 30vh; /* Metade da página */
-  background-color: #152473; /* Azul */
-  
+  height: 30vh; 
+  background-color: #152473; 
+  margin: 20px 0px;
 `
 
 export const Title1 = styled.h1`
@@ -16,7 +16,7 @@ export const Title1 = styled.h1`
 
 export const BodyContainer = styled.div`
   width: 100%;
-  min-height: 50vh; /* Metade da página */ /* Branco */
+  min-height: 50vh;
 `;
 
 export const HeaderContainer = styled.header`
@@ -43,7 +43,7 @@ export const Title = styled.h1`
   text-align: center;
 `;
 
-export const Icon = styled.i`
+export const Icon = styled.img`
   font-size: 2rem;
   margin-bottom: 1rem;
 `;

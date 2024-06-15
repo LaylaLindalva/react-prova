@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Use useNavigate para navegação programática
+import { useNavigate } from 'react-router-dom'; 
 import '../../src/index.css';
-import { DivCadastro, InputSenha, Titulo, Divtexto, P, TxtLogin, Label, InputCPF, Button, PrimeiraDiv, TerceiraDiv, DivEngloba } from '../Style/Login';
+import { Div1, InputSenha, Div2, Div3, P, H1, H2, Label, InputCPF, Button, Form } from '../Style/Login';
 
-const Login = ({ onLoginSuccess }) => { // Recebe a função de sucesso de login como prop
+const Login = ({ onLoginSuccess }) => { 
     const navigate = useNavigate();
     const [cpf, setCpf] = useState('');
     const [senha, setSenha] = useState('');
 
     const handleLogin = () => {
         if (cpf === '123456789' && senha === 'password') {
-            onLoginSuccess(); // Atualiza o estado de autenticação no App
-            navigate('/home'); // Redireciona para /home após o login bem-sucedido
+            onLoginSuccess(); 
+            navigate('/home'); 
         } else {
             alert('CPF ou Senha incorretos');
         }
@@ -19,16 +19,17 @@ const Login = ({ onLoginSuccess }) => { // Recebe a função de sucesso de login
 
     return (
         <>
-            <PrimeiraDiv></PrimeiraDiv>
-            <Divtexto>
-                <Titulo>Control-Clean</Titulo>
-                <DivEngloba>
+            
+            <Div1>
+                <H1>Control-Clean</H1>
+                <Div2>
                     <P>Plataforma de apoio aos colaboradores na efetuação de suas tarefas.</P>
-                </DivEngloba>
-            </Divtexto>
+                </Div2>
+            </Div1>
 
-            <DivCadastro>
-                <TxtLogin>Login</TxtLogin>
+            <Div3>
+                <Form>
+                <H2>Login</H2>
                 <Label htmlFor="cpf">CPF</Label>
                 <InputCPF
                     value={cpf}
@@ -36,13 +37,13 @@ const Login = ({ onLoginSuccess }) => { // Recebe a função de sucesso de login
                 />
                 <Label htmlFor="senha">SENHA</Label>
                 <InputSenha
-                    type='password'
                     value={senha}
                     onChange={(e) => setSenha(e.target.value)}
                 />
                 <Button onClick={handleLogin}>ENTRAR</Button>
-            </DivCadastro>
-            <TerceiraDiv></TerceiraDiv>
+                </Form>
+            </Div3>
+            
         </>
     );
 };

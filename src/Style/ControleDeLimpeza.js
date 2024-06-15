@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-export const DivPrincipal = styled.div`
+export const ContainerPrincipal = styled.div`
     display: flex;
     justify-content: center;
     padding-top: 80px;
     padding-bottom: 80px;
 ` 
 
-export const DivCardMaior = styled.div`
+export const Container1 = styled.div`
     width: 704px;
     height: 772px;
     background-color: #152473;
@@ -16,7 +16,7 @@ export const DivCardMaior = styled.div`
     padding: 20px;
 `
 
-export const DivImg = styled.div`
+export const Container2 = styled.div`
     background-color: #FFFF;
     border-radius: 0px 20px 20px 0px;
     width: 410px;
@@ -38,6 +38,14 @@ export const Input = styled.input`
     height: 37px;
     margin: 20px 0px 20px 55px;
     padding: 5px;
+`
+
+export const P = styled.p`
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: red;
+    font-size: 20px;
 `
 
 export const Img = styled.img`

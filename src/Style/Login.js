@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 
-export const Divtexto = styled.div`
+export const Div1 = styled.div`
    background-color: #1A447E;
    width: auto;
    height: 800px;
 `
-export const DivEngloba = styled.div`
+export const Div2= styled.div`
 display: flex;
 width: 700px;
 `
-export const Titulo = styled.h1`
+export const H1 = styled.h1`
 color: #fff;
 padding-top: 20%;
 font-size: 50px;
@@ -25,7 +25,7 @@ margin-top: 20px;
 margin-left :100px;
 `
 
-export const DivCadastro= styled.div`
+export const Div3 = styled.div`
 background-color: #fff;
 width: 500px;
 height:500px;
@@ -37,8 +37,7 @@ flex-direction: column;
 
 
 `
-export const TxtLogin= styled.h1`
-
+export const H2= styled.h1`
 font-size:36px;
 margin-top: 30px;
 align-items: center;
@@ -90,4 +89,8 @@ export const TerceiraDiv = styled.div`
     opacity: 80%;
 `
 export const Teste = styled.a`
+`
+
+export const Form = styled.form`
+    
 `

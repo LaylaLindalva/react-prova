@@ -13,7 +13,7 @@ export const Div = styled.div`
     background-color: #152473;
 `;
 
-export const Titulo = styled.h1`
+export const H1 = styled.h1`
     font-size: 20px;
     color: white;
     display: flex;
@@ -29,7 +29,7 @@ export const Section1 = styled.section`
     margin: 0 auto;
 `;
 
-export const DivMenor = styled.div`
+export const Div2 = styled.div`
     background-color: #152473;
     display: flex;
     width: 300px;
@@ -40,7 +40,7 @@ export const DivMenor = styled.div`
     align-items: center;
 `;
 
-export const ConteudoDivMenor = styled.h1`
+export const H2 = styled.h1`
     color: white;
     justify-content: center;
     font-size: 25px;
@@ -73,7 +73,7 @@ export const DivPrincipal = styled.div`
     display: flex;
 `;
 
-export const DivEngloba = styled.div`
+export const Div3 = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,13 +1,14 @@
-import { Button, DivCardMaior, DivImg, DivPrincipal, Form, H1, Img, Input, InputComentario, Label } from "../Style/ControleDeLimpeza"
+import { Button, Container1, Container2, ContainerPrincipal, Form, H1, Img, Input, InputComentario, Label, P } from "../Style/ControleDeLimpeza"
 import Img1 from '../../Image/carrinho-limpeza.png'
 import React from "react"
 
-const ControleDeLimpeza = (saveDados) => {
+const ControleDeLimpeza = ({saveDados}) => {
 
     const[nome, setNome] = React.useState('')
     const[hora, setHora] = React.useState('')
     const[sala, setSala] = React.useState('')
     const[data, setData] = React.useState('')
+    const[comentario, setComentario] = React.useState('')
     const[error, setError] = React.useState('')
 
     function handleSaveInfo () {
@@ -21,52 +22,49 @@ const ControleDeLimpeza = (saveDados) => {
         saveDados(dados)
     }
 
-    function ValidaNome (value) {
-        if(value === ''){
-            setError("O campo não pode estar vazio")
-            return false
-    }else {
-        setError(null)
-        return true
-    }
-}
 
-function handleNome({target}){
-    ValidaNome(target.value)
-}
-
-    function preventDefult(event){
-        event.preventDefult()
+    function EnviaForm() {
+        if(nome === '' || hora === '' || sala === '' || comentario === ''){
+            setError('Preencha os campos vazios')
+        }else {
+            setError(null)
         }
+    }
+
+    
 
     return(
-        <DivPrincipal>
-            <DivCardMaior>
-                <Form onSubmit={preventDefult}>
+        <ContainerPrincipal>
+            <Container1>
+                <Form onSubmit={EnviaForm}>
                 <H1>Controle de Limpeza</H1>
-                <Input type="text" placeholder="Nome" 
-                value={nome}
-                onBlur={handleNome}
-                style={error ? {borderColor: "red"} :{borderColor:"green"}}
-                onChange={({target}) => setNome(target.value)}/>
+                <Input type="text" placeholder="Nome" value={nome}
+                onChange={event => setNome(event.target.value)}
+                style={error ? {borderColor: "red"} :{borderColor:"green"}}/>
                 <Input type="text" placeholder="Horário da limpeza"
                  value={hora}
-                 onChange={event => setHora(event.target.value)}/>
+                 onChange={event => setHora(event.target.value)}
+                 style={error ? {borderColor: "red"} :{borderColor:"green"}}/>
                 <Input type="text" placeholder="Número da sala"
                  value={sala}
-                 onChange={event => setSala(event.target.value)}/>
+                 onChange={event => setSala(event.target.value)}
+                 style={error ? {borderColor: "red"} :{borderColor:"green"}}/>
                 <Input type="text" placeholder="Data"
                  value={data}
                  onChange={event => setData(event.target.value)}/>
                 <Label>Deixe aqui seu comentário</Label>
-                <InputComentario type="text"/>
+                <InputComentario type="text"
+                value={comentario}
+                onChange={event => setComentario(event.target.value)}/>
+                {error && <P>{error}</P>}
                 <Button onClick={handleSaveInfo}>Enviar</Button>
+                
                 </Form>
-            </DivCardMaior>
-            <DivImg>
+            </Container1>
+            <Container2>
                 <Img src={Img1}/>
-            </DivImg>
-        </DivPrincipal>
+            </Container2>
+        </ContainerPrincipal>
     )
 }
 
